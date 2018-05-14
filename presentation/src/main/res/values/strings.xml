@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Open_weather</string>
+    <string name="location_permission_denied">Location permission request was denied</string>
+    <string name="location_access_required">Location access is required to definite your city
+        for current weather displaying</string>
+    <string name="ok">Ok</string>
+</resources>

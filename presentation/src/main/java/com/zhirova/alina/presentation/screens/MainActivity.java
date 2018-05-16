@@ -6,18 +6,10 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import com.zhirova.alina.data.geolocation.GeoCoordinates;
 import com.zhirova.alina.data.geolocation.GeoCoordinatesImpl;
-import com.zhirova.alina.domain.City;
 import com.zhirova.alina.presentation.R;
-import com.zhirova.alina.remote.RemoteApi;
-import com.zhirova.alina.remote.RemoteApiImpl;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,16 +24,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainLayout = findViewById(R.id.container);
-        //showPermissionPreview();
+        showPermissionPreview();
 
 
-        Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
-        List<Pair<Double, Double>> locations = new ArrayList<>();
-        locations.add(coord);
-
-        RemoteApi remoteApi = new RemoteApiImpl();
-        List<City> cities = remoteApi.loadCities(locations);
-
+//        Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
+//        List<Pair<Double, Double>> locations = new ArrayList<>();
+//        locations.add(coord);
+//
+//        RemoteApi remoteApi = new RemoteApiImpl();
+//        List<City> cities = remoteApi.loadCities(locations);
     }
 
 

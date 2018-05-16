@@ -44,7 +44,6 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
                             double longitude = location.getLongitude();
                             Log.d("BASKA", "latitude = " + latitude);
                             Log.d("BASKA", "longitude = " + longitude);
-
                         }
                     }
                 })

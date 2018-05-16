@@ -59,19 +59,4 @@ public class RemoteApiImpl implements RemoteApi {
     }
 
 
-    void print(List<City> cities) {
-        for (int i = 0; i < cities.size(); i++) {
-            Log.d("BASKA", "============================");
-            Log.d("BASKA", "City = " + cities.get(i).getName());
-            Log.d("BASKA", "Latitude = " + cities.get(i).getLatitude());
-            Log.d("BASKA", "Longitude = " + cities.get(i).getLongitude());
-            Log.d("BASKA", "TempWithDegree = " +
-                    cities.get(i).getWeatherDay().getTempWithDegree());
-            Log.d("BASKA", "Wind = " + cities.get(i).getWeatherDay().getWind());
-            Log.d("BASKA", "Date = " + cities.get(i).getWeatherDay().getDate());
-            Log.d("BASKA", "IconUrl = " + cities.get(i).getWeatherDay().getIconUrl());
-        }
-    }
-
-
 }

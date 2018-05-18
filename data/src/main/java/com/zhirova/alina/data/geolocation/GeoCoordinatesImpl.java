@@ -8,11 +8,15 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.util.Pair;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GeoCoordinatesImpl implements GeoCoordinates {
@@ -28,10 +32,12 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
 
 
     @Override
-    public void findCurLocation() {
+    public List<Pair<Double, Double>> findCurLocation() {
+        final List<Pair<Double, Double>> coordinates = new ArrayList<>();
         if (ActivityCompat.checkSelfPermission(context,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            return;
+            coordinates.clear();
+            return coordinates;
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
@@ -42,8 +48,8 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
                         if (location != null) {
                             double latitude = location.getLatitude();
                             double longitude = location.getLongitude();
-                            Log.d("BASKA", "latitude = " + latitude);
-                            Log.d("BASKA", "longitude = " + longitude);
+                            Pair<Double, Double> position = new Pair<>(latitude, longitude);
+                            coordinates.add(position);
                         }
                     }
                 })
@@ -53,6 +59,7 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
                         Log.e("ERROR", "Error trying to get last GPS location");
                     }
                 });
+        return coordinates;
     }
 
 

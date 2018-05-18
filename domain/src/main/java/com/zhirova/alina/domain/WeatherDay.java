@@ -7,11 +7,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 
 public class WeatherDay {
@@ -78,15 +76,12 @@ public class WeatherDay {
     @SerializedName("weather")
     private List<Weather> weather = new ArrayList<>();
 
-    @SerializedName("name")
-    private String city;
-
     @SerializedName("dt_txt")
     private String timeStamp;
 
 
     public WeatherDay(Main mainInfo, Wind wind, Clouds clouds, List<Weather> weather,
-                      String city, String timeStamp) {
+                      String timeStamp) {
         try {
             this.mainInfo = mainInfo.clone();
             this.wind = wind.clone();
@@ -98,7 +93,6 @@ public class WeatherDay {
         if (weather != null) {
             this.weather.addAll(weather);
         }
-        this.city = city;
         this.timeStamp = timeStamp;
     }
 
@@ -133,11 +127,6 @@ public class WeatherDay {
     }
 
 
-    public String getCity() {
-        return city;
-    }
-
-
     public String getDate() {
         try {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
@@ -166,8 +155,7 @@ public class WeatherDay {
 
     @Override
     protected WeatherDay clone() throws CloneNotSupportedException {
-        return new WeatherDay(this.mainInfo, this.wind, this.clouds, this.weather,
-                this.city, this.timeStamp);
+        return new WeatherDay(this.mainInfo, this.wind, this.clouds, this.weather, this.timeStamp);
     }
 
 

@@ -47,7 +47,7 @@ public class RemoteApiImpl implements RemoteApi {
                 Response<WeatherForecast> responseForecast = callForecast.execute();
                 WeatherForecast weatherForecast = responseForecast.body();
 
-                City curCity = new City(weatherDay.getCity(), curLatitude, curLongitude,
+                City curCity = new City(weatherForecast.getCity(), curLatitude, curLongitude,
                         weatherDay.getTemperature());
                 curCity.setWeatherForecast(weatherForecast);
                 cities.add(curCity);

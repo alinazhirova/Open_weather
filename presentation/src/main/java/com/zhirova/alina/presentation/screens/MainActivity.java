@@ -108,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
     void print(List<City> cities) {
         for (int i = 0; i < cities.size(); i++) {
             List<WeatherDay> weatherDayList = cities.get(i).getWeatherForecast().getDays();
+            Log.d("BASKA", "==========================================");
+            Log.d("BASKA", "==========================================");
+            Log.d("BASKA", "==========================================");
+            Log.d("BASKA", "City = " + cities.get(i).getWeatherForecast().getCity());
             for (int j = 0; j < weatherDayList.size(); j++) {
                 WeatherDay weatherDayListDay = weatherDayList.get(j);
                 Log.d("BASKA", "_______________________________________");

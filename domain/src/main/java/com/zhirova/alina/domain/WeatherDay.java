@@ -3,27 +3,28 @@ package com.zhirova.alina.domain;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 
 public class WeatherDay {
 
-    public class WeatherTemperature {
-        Double temp;
-        Double temp_min;
-        Double temp_max;
+    public class Main {
+        float temp;
+        float pressure;
 
-        WeatherTemperature(Double temp, Double temp_min, Double temp_max) {
+        Main(float temp, float pressure) {
             this.temp = temp;
-            this.temp_min = temp_min;
-            this.temp_max = temp_max;
+            this.pressure = pressure;
         }
 
         @Override
-        protected WeatherTemperature clone() throws CloneNotSupportedException {
-            return new WeatherTemperature(this.temp, this.temp_min, this.temp_max);
+        protected Main clone() throws CloneNotSupportedException {
+            return new Main(this.temp, this.pressure);
         }
     }
 
@@ -33,14 +34,28 @@ public class WeatherDay {
     }
 
 
+    public class Wind {
+        float speed;
+
+        Wind(float speed) {
+            this.speed = speed;
+        }
+
+        @Override
+        protected Wind clone() throws CloneNotSupportedException {
+            return new Wind(this.speed);
+        }
+    }
+
+
     @SerializedName("main")
-    private WeatherTemperature temperature;
+    private Main mainInfo;
 
     @SerializedName("weather")
     private List<WeatherDescription> desctiption = new ArrayList<>();
 
-    @SerializedName("speed")
-    private float wind;
+    @SerializedName("wind")
+    private Wind wind;
 
     @SerializedName("name")
     private String city;
@@ -49,9 +64,11 @@ public class WeatherDay {
     private long timeStamp;
 
 
-    public WeatherDay(WeatherTemperature temperature, List<WeatherDescription> desctiption) {
+    public WeatherDay(Main mainInfo, List<WeatherDescription> desctiption, Wind wind,
+                      String city, long timeStamp) {
         try {
-            this.temperature = temperature.clone();
+            this.mainInfo = mainInfo.clone();
+            this.wind = wind;
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -59,38 +76,23 @@ public class WeatherDay {
         if (desctiption != null) {
             this.desctiption.addAll(desctiption);
         }
-    }
-
-
-    public Calendar getDate() {
-        Calendar date = Calendar.getInstance();
-        date.setTimeInMillis(timeStamp * 1000);
-        return date;
-    }
-
-
-    public String getTemp() {
-        return String.valueOf(temperature.temp);
-    }
-
-
-    public String getTempMin() {
-        return String.valueOf(temperature.temp_min);
-    }
-
-
-    public String getTempMax() {
-        return String.valueOf(temperature.temp_max);
+        this.city = city;
+        this.timeStamp = timeStamp;
     }
 
 
     public String getTempWithDegree() {
-        return String.valueOf(temperature.temp.intValue()) + "\u00B0";
+        return (mainInfo.temp + "\u00B0");
     }
 
 
-    public float getWind() {
-        return wind;
+    public String getPressure() {
+        return (mainInfo.pressure + " hpa");
+    }
+
+
+    public String getWind() {
+        return (wind.speed + " m/s");
     }
 
 
@@ -104,9 +106,26 @@ public class WeatherDay {
     }
 
 
+    public String getDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStamp * 1000);
+        DateFormat dateFormat = new SimpleDateFormat("E, dd MMMM", Locale.ENGLISH);
+        return dateFormat.format(calendar.getTime());
+    }
+
+
+    public String getTime() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timeStamp * 1000);
+        DateFormat dateFormat = new SimpleDateFormat("HH:00", Locale.ENGLISH);
+        return dateFormat.format(calendar.getTime());
+    }
+
+
     @Override
     protected WeatherDay clone() throws CloneNotSupportedException {
-        return new WeatherDay(this.temperature, this.desctiption);
+        return new WeatherDay(this.mainInfo, this.desctiption, this.wind,
+                this.city, this.timeStamp);
     }
 
 

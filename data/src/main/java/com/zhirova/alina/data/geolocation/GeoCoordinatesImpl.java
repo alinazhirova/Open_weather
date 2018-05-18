@@ -14,6 +14,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
 
     @Override
     public List<Pair<Double, Double>> findCurLocation() {
-        final List<Pair<Double, Double>> coordinates = new ArrayList<>();
+        List<Pair<Double, Double>> coordinates = new ArrayList<>();
         if (ActivityCompat.checkSelfPermission(context,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             coordinates.clear();
@@ -41,16 +42,12 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
-        fusedLocationClient.getLastLocation()
+        Task<Location> locationTask = fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
-                        if (location != null) {
-                            double latitude = location.getLatitude();
-                            double longitude = location.getLongitude();
-                            Pair<Double, Double> position = new Pair<>(latitude, longitude);
-                            coordinates.add(position);
-                        }
+//                        Log.d("BASKA", "Latitude = " + location.getLatitude());
+//                        Log.d("BASKA", "Longitude = " + location.getLongitude());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     private final int PERMISSION_REQUEST_ACCESS_COARSE_LOCATION = 0;
     private View mainLayout;
-    private GeoCoordinates geoCoordinates;
 
 
     @Override
@@ -37,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainLayout = findViewById(R.id.container);
         //showPermissionPreview();
-        //////////////////////////////
+        ////////////////////////////////////////////
 
-        CitiesModel citiesModel = new CitiesModelImpl();
+        CitiesModel citiesModel = new CitiesModelImpl(this);
         CompositeDisposable disposables = new CompositeDisposable();
         Disposable curDisposable = citiesModel.getCities()
                 .subscribe(data -> {
@@ -64,10 +63,7 @@ public class MainActivity extends AppCompatActivity {
                                            int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_ACCESS_COARSE_LOCATION) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                geoCoordinates = new GeoCoordinatesImpl(this);
-                geoCoordinates.findCurLocation();
-            } else {
+            if (grantResults.length != 1 || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 Snackbar.make(mainLayout, R.string.location_permission_denied, Snackbar.LENGTH_SHORT).show();
             }
         }
@@ -76,10 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showPermissionPreview() {
         if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            geoCoordinates = new GeoCoordinatesImpl(this);
-            geoCoordinates.findCurLocation();
-        } else {
+                Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestLocationPermission();
         }
     }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 
 public class WeatherDay {
@@ -29,7 +30,8 @@ public class WeatherDay {
     }
 
 
-    public class WeatherDescription {
+    public class Weather {
+        String description;
         String icon;
     }
 
@@ -48,14 +50,31 @@ public class WeatherDay {
     }
 
 
+    public class Clouds {
+        int all;
+
+        Clouds(int all) {
+            this.all = all;
+        }
+
+        @Override
+        protected Clouds clone() throws CloneNotSupportedException {
+            return new Clouds(this.all);
+        }
+    }
+
+
     @SerializedName("main")
     private Main mainInfo;
 
-    @SerializedName("weather")
-    private List<WeatherDescription> desctiption = new ArrayList<>();
-
     @SerializedName("wind")
     private Wind wind;
+
+    @SerializedName("clouds")
+    private Clouds clouds;
+
+    @SerializedName("weather")
+    private List<Weather> weather = new ArrayList<>();
 
     @SerializedName("name")
     private String city;
@@ -64,24 +83,25 @@ public class WeatherDay {
     private long timeStamp;
 
 
-    public WeatherDay(Main mainInfo, List<WeatherDescription> desctiption, Wind wind,
+    public WeatherDay(Main mainInfo, Wind wind, Clouds clouds, List<Weather> weather,
                       String city, long timeStamp) {
         try {
             this.mainInfo = mainInfo.clone();
-            this.wind = wind;
+            this.wind = wind.clone();
+            this.clouds = clouds.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        this.desctiption.clear();
-        if (desctiption != null) {
-            this.desctiption.addAll(desctiption);
+        this.weather.clear();
+        if (weather != null) {
+            this.weather.addAll(weather);
         }
         this.city = city;
         this.timeStamp = timeStamp;
     }
 
 
-    public String getTempWithDegree() {
+    public String getTemperature() {
         return (mainInfo.temp + "\u00B0");
     }
 
@@ -96,13 +116,23 @@ public class WeatherDay {
     }
 
 
-    public String getCity() {
-        return city;
+    public String getClouds() {
+        return (clouds.all + " %");
+    }
+
+
+    public String getDescription() {
+        return weather.get(0).description;
     }
 
 
     public String getIconUrl() {
-        return "http://openweathermap.org/img/w/" + desctiption.get(0).icon + ".png";
+        return "http://openweathermap.org/img/w/" + weather.get(0).icon + ".png";
+    }
+
+
+    public String getCity() {
+        return city;
     }
 
 
@@ -117,14 +147,14 @@ public class WeatherDay {
     public String getTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeStamp * 1000);
-        DateFormat dateFormat = new SimpleDateFormat("HH:00", Locale.ENGLISH);
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
         return dateFormat.format(calendar.getTime());
     }
 
 
     @Override
     protected WeatherDay clone() throws CloneNotSupportedException {
-        return new WeatherDay(this.mainInfo, this.desctiption, this.wind,
+        return new WeatherDay(this.mainInfo, this.wind, this.clouds, this.weather,
                 this.city, this.timeStamp);
     }
 

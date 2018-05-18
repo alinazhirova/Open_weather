@@ -6,14 +6,15 @@ public class City {
     private final String name;
     private final double latitude;
     private final double longitude;
-    private WeatherDay weatherDay;
+    private final String curTemperature;
     private WeatherForecast weatherForecast;
 
 
-    public City(String name, double latitude, double longitude) {
+    public City(String name, double latitude, double longitude, String curTemperature) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.curTemperature = curTemperature;
     }
 
 
@@ -32,17 +33,8 @@ public class City {
     }
 
 
-    public WeatherDay getWeatherDay() {
-        return weatherDay;
-    }
-
-
-    public void setWeatherDay(WeatherDay weatherDay) {
-        try {
-            this.weatherDay = weatherDay.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+    public String getCurTemperature() {
+        return curTemperature;
     }
 
 

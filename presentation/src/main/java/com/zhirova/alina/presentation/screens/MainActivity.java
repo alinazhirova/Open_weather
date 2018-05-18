@@ -107,35 +107,19 @@ public class MainActivity extends AppCompatActivity {
 
     void print(List<City> cities) {
         for (int i = 0; i < cities.size(); i++) {
-            Log.d("BASKA", "============================");
-            Log.d("BASKA", "City = " + cities.get(i).getName());
-            Log.d("BASKA", "Latitude = " + cities.get(i).getLatitude());
-            Log.d("BASKA", "Longitude = " + cities.get(i).getLongitude());
-            Log.d("BASKA", "TempWithDegree = " +
-                    cities.get(i).getWeatherDay().getTempWithDegree());
-            Log.d("BASKA", "Pressure = " +
-                    cities.get(i).getWeatherDay().getPressure());
-            Log.d("BASKA", "Wind = " + cities.get(i).getWeatherDay().getWind());
-            Log.d("BASKA", "IconUrl = " + cities.get(i).getWeatherDay().getIconUrl());
-            Log.d("BASKA", "Date = " + cities.get(i).getWeatherDay().getDate());
-            Log.d("BASKA", "Time = " + cities.get(i).getWeatherDay().getTime());
-//            Log.d("BASKA", "5 days______");
-//            List<WeatherDay> weatherDayList = cities.get(i).getWeatherForecast().getDays();
-//            for (int j = 0; j < weatherDayList.size(); j++) {
-//                Log.d("BASKA", "_____________");
-//                Log.d("BASKA", "TempWithDegree = " +
-//                        weatherDayList.get(i).getTempWithDegree());
-//                Log.d("BASKA", "Wind = " + weatherDayList.get(i).getWind());
-//                Log.d("BASKA", "IconUrl = " + weatherDayList.get(i).getIconUrl());
-//                String dateF = String.format("%d.%d.%d %d:%d",
-//                        weatherDayList.get(i).getDate().get(Calendar.DAY_OF_MONTH),
-//                        weatherDayList.get(i).getDate().get(Calendar.WEEK_OF_MONTH),
-//                        weatherDayList.get(i).getDate().get(Calendar.YEAR),
-//                        weatherDayList.get(i).getDate().get(Calendar.HOUR_OF_DAY),
-//                        weatherDayList.get(i).getDate().get(Calendar.MINUTE)
-//                );
-//                Log.d("BASKA", "dateF = " + dateF);
-//            }
+            List<WeatherDay> weatherDayList = cities.get(i).getWeatherForecast().getDays();
+            for (int j = 0; j < weatherDayList.size(); j++) {
+                WeatherDay weatherDayListDay = weatherDayList.get(j);
+                Log.d("BASKA", "_______________________________________");
+                Log.d("BASKA", "Temp = " + weatherDayListDay.getTemperature());
+                Log.d("BASKA", "Pressure = " + weatherDayListDay.getPressure());
+                Log.d("BASKA", "Description = " + weatherDayListDay.getDescription());
+                Log.d("BASKA", "IconUrl = " + weatherDayListDay.getIconUrl());
+                Log.d("BASKA", "Wind = " + weatherDayListDay.getWind());
+                Log.d("BASKA", "Clouds = " + weatherDayListDay.getClouds());
+                Log.d("BASKA", "Date = " + weatherDayListDay.getDate());
+                Log.d("BASKA", "Time = " + weatherDayListDay.getTime());
+            }
         }
     }
 

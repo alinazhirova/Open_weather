@@ -36,6 +36,7 @@ public class RemoteApiImpl implements RemoteApi {
         for (int i = 0; i < locations.size(); i++) {
             double curLatitude = locations.get(i).first;
             double curLongitude = locations.get(i).second;
+
             Call<WeatherDay> callToday = weatherService.getToday(curLatitude, curLongitude,
                     WeatherApi.UNITS, WeatherApi.KEY);
             Call<WeatherForecast> callForecast = weatherService.getForecast(curLatitude, curLongitude,
@@ -43,12 +44,11 @@ public class RemoteApiImpl implements RemoteApi {
             try {
                 Response<WeatherDay> responseDay = callToday.execute();
                 WeatherDay weatherDay = responseDay.body();
-
                 Response<WeatherForecast> responseForecast = callForecast.execute();
                 WeatherForecast weatherForecast = responseForecast.body();
 
-                City curCity = new City(weatherDay.getCity(), curLatitude, curLongitude);
-                curCity.setWeatherDay(weatherDay);
+                City curCity = new City(weatherDay.getCity(), curLatitude, curLongitude,
+                        weatherDay.getTemperature());
                 curCity.setWeatherForecast(weatherForecast);
                 cities.add(curCity);
             } catch (IOException e) {

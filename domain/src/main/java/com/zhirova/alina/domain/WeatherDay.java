@@ -4,9 +4,11 @@ package com.zhirova.alina.domain;
 import com.google.gson.annotations.SerializedName;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -79,12 +81,12 @@ public class WeatherDay {
     @SerializedName("name")
     private String city;
 
-    @SerializedName("dt")
-    private long timeStamp;
+    @SerializedName("dt_txt")
+    private String timeStamp;
 
 
     public WeatherDay(Main mainInfo, Wind wind, Clouds clouds, List<Weather> weather,
-                      String city, long timeStamp) {
+                      String city, String timeStamp) {
         try {
             this.mainInfo = mainInfo.clone();
             this.wind = wind.clone();
@@ -137,18 +139,28 @@ public class WeatherDay {
 
 
     public String getDate() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeStamp * 1000);
-        DateFormat dateFormat = new SimpleDateFormat("E, dd MMMM", Locale.ENGLISH);
-        return dateFormat.format(calendar.getTime());
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+            Date date = dateFormat.parse(timeStamp);
+            dateFormat = new SimpleDateFormat("E, dd MMMM", Locale.ENGLISH);
+            return dateFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return timeStamp;
     }
 
 
     public String getTime() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeStamp * 1000);
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
-        return dateFormat.format(calendar.getTime());
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+            Date date = dateFormat.parse(timeStamp);
+            dateFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
+            return dateFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return timeStamp;
     }
 
 

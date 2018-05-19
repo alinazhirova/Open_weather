@@ -44,17 +44,16 @@ public class CitiesModelImpl implements CitiesModel {
                 Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
                 List<Pair<Double, Double>> locations = new ArrayList<>();
                 locations.add(coord);
-                List<City> cities = remoteApi.loadCities(locations);
 
-                emitter.onNext(new ArrayList<>(cities));
-                emitter.onComplete();
-
+//                List<Pair<Double, Double>> locations = localApi.getLocations();
 //                if (locations.size() == 0) {
 //                    GeoCoordinates geoCoordinates = new GeoCoordinatesImpl(context);
 //                    locations = geoCoordinates.findCurLocation();
 //                    Log.d("BASKA", "Empty DB");
 //                }
+
 //                List<City> cities = localApi.getCities();
+//                Log.d("BASKA", "cities_local.size() = " + cities.size());
 //                emitter.onNext(new ArrayList<>(cities));
 
 //                try {
@@ -70,12 +69,16 @@ public class CitiesModelImpl implements CitiesModel {
 //                    Log.d("BASKA", "curLocation_longitude = " + curLocation.second);
 //                }
 //                Log.d("BASKA", "locations.size() = " + locations.size());
-//
-//                List<City> cities = remoteApi.loadCities(locations);
-//                Log.d("BASKA", "cities.size() = " + cities.size());
-//                localApi.refreshCities(cities);
-//                emitter.onNext(new ArrayList<>(cities));
-//                emitter.onComplete();
+
+                List<City> cities = remoteApi.loadCities(locations);
+                Log.d("BASKA", "cities_remote.size() = " + cities.size());
+                localApi.refreshCities(cities);
+                cities = null;
+                cities = localApi.getCities();
+                Log.d("BASKA", "cities_local.size() = " + cities.size());
+
+                emitter.onNext(new ArrayList<>(cities));
+                emitter.onComplete();
             } catch (Exception e) {
                 emitter.onError(e);
             }

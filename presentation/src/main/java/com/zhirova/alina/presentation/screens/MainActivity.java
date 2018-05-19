@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
             Log.d("BASKA", "==========================================");
             Log.d("BASKA", "==========================================");
             Log.d("BASKA", "==========================================");
-            Log.d("BASKA", "City = " + cities.get(i).getWeatherForecast().getCity());
+            Log.d("BASKA", "City = " + cities.get(i).getName());
+            Log.d("BASKA", "Latitude = " + cities.get(i).getLatitude());
+            Log.d("BASKA", "Longitude = " + cities.get(i).getLongitude());
             for (int j = 0; j < weatherDayList.size(); j++) {
                 WeatherDay weatherDayListDay = weatherDayList.get(j);
                 Log.d("BASKA", "_______________________________________");

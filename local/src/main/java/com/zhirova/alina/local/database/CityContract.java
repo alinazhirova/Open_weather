@@ -2,6 +2,8 @@ package com.zhirova.alina.local.database;
 
 import android.provider.BaseColumns;
 
+import java.sql.Blob;
+
 
 public final class CityContract {
 

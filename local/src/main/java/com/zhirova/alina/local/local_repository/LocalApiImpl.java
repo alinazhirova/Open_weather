@@ -1,17 +1,27 @@
 package com.zhirova.alina.local.local_repository;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.JsonReader;
+import android.util.Log;
 import android.util.Pair;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.zhirova.alina.domain.City;
+import com.zhirova.alina.domain.WeatherDay;
 import com.zhirova.alina.local.database.DatabaseApi;
 import com.zhirova.alina.local.database.DatabaseHelper;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class LocalApiImpl implements LocalApi {
@@ -50,15 +60,15 @@ public class LocalApiImpl implements LocalApi {
 
     @Override
     public void refreshCities(List<City> cities) {
+        Log.d("BASKA", "refreshCities");
         DatabaseApi.deleteAllItems(database);
         for (City curCity:cities) {
-            JSONObject json = new JSONObject();
-            try {
-                json.put("weatherDayList", curCity.getWeatherForecast());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            String weatherForecastString = json.toString();
+            Gson gson = new Gson();
+            String weatherForecastString = gson.toJson(curCity.getWeatherForecast());
+
+            Log.d("BASKA", "weatherForecastString = " + weatherForecastString);
+
+            //Log.d("BASKA", "weatherForecastString = " + weatherForecastString);
             DatabaseApi.addItem(curCity.getName(), curCity.getLatitude(), curCity.getLongitude(),
                     curCity.getCurTemperature(), weatherForecastString, database);
         }

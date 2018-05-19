@@ -4,15 +4,21 @@ package com.zhirova.alina.local.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.JsonToken;
 import android.util.Log;
 import android.util.Pair;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.zhirova.alina.domain.City;
+import com.zhirova.alina.domain.WeatherDay;
 import com.zhirova.alina.domain.WeatherForecast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
+import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,16 +117,15 @@ public class DatabaseApi {
                 String weatherForecastString = cursor.getString(weatherForecastIndex);
 
                 City curCity = new City(name, latitude, longitude, temperature);
-                JSONObject json = null;
-                WeatherForecast weatherForecastObject = null;
 
-                try {
-                    json = new JSONObject(weatherForecastString);
-                    weatherForecastObject = (WeatherForecast) json.get("weatherDayList");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                curCity.setWeatherForecast(weatherForecastObject);
+                Gson gson = new Gson();
+                Type type = new TypeToken<WeatherForecast>(){}.getType();
+                WeatherForecast weatherForecast = gson.fromJson(weatherForecastString, type);
+
+                Log.d("BASKA", "DatabaseApi");
+                //Log.d("BASKA", "json = " + json);
+
+                curCity.setWeatherForecast(weatherForecast);
                 result.add(curCity);
             }
             try{

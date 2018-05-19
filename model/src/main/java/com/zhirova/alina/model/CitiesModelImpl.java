@@ -15,8 +15,6 @@ import com.zhirova.alina.remote.RemoteApiImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -48,35 +46,14 @@ public class CitiesModelImpl implements CitiesModel {
 //                List<Pair<Double, Double>> locations = localApi.getLocations();
 //                if (locations.size() == 0) {
 //                    GeoCoordinates geoCoordinates = new GeoCoordinatesImpl(context);
-//                    locations = geoCoordinates.findCurLocation();
-//                    Log.d("BASKA", "Empty DB");
+//                    locations = GeoCoordinatesImpl.getCoordinates();
 //                }
 
-//                List<City> cities = localApi.getCities();
-//                Log.d("BASKA", "cities_local.size() = " + cities.size());
-//                emitter.onNext(new ArrayList<>(cities));
+                List<City> cities = localApi.getCities();
+                emitter.onNext(new ArrayList<>(cities));
 
-//                try {
-//                    TimeUnit.SECONDS.sleep(1);
-//                } catch (InterruptedException e) {
-//                    Log.e(TAG, "ERROR", e);
-//                }
-//
-//                for (int i = 0; i < locations.size(); i++) {
-//                    Pair<Double, Double> curLocation = locations.get(i);
-//                    Log.d("BASKA", "===============================");
-//                    Log.d("BASKA", "curLocation_latitude = " + curLocation.first);
-//                    Log.d("BASKA", "curLocation_longitude = " + curLocation.second);
-//                }
-//                Log.d("BASKA", "locations.size() = " + locations.size());
-
-                List<City> cities = remoteApi.loadCities(locations);
-                Log.d("BASKA", "cities_remote.size() = " + cities.size());
+                cities = remoteApi.loadCities(locations);
                 localApi.refreshCities(cities);
-                cities = null;
-                cities = localApi.getCities();
-                Log.d("BASKA", "cities_local.size() = " + cities.size());
-
                 emitter.onNext(new ArrayList<>(cities));
                 emitter.onComplete();
             } catch (Exception e) {

@@ -7,5 +7,5 @@ import java.util.List;
 
 
 public interface GeoCoordinates {
-    List<Pair<Double, Double>> findCurLocation();
+    void findCurLocation();
 }

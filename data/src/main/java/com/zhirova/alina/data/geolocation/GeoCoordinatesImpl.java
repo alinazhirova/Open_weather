@@ -25,6 +25,7 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
     private static final String TAG = GeoCoordinatesImpl.class.getSimpleName();
     private Context context;
     private FusedLocationProviderClient fusedLocationClient;
+    private static List<Pair<Double, Double>> coordinates;
 
 
     public GeoCoordinatesImpl(Context context) {
@@ -32,22 +33,26 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
     }
 
 
+    public static  List<Pair<Double, Double>> getCoordinates() {
+        return coordinates;
+    }
+
+
     @Override
-    public List<Pair<Double, Double>> findCurLocation() {
-        List<Pair<Double, Double>> coordinates = new ArrayList<>();
+    public void findCurLocation() {
         if (ActivityCompat.checkSelfPermission(context,
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            coordinates.clear();
-            return coordinates;
+            return;
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
-        Task<Location> locationTask = fusedLocationClient.getLastLocation()
+        fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
-//                        Log.d("BASKA", "Latitude = " + location.getLatitude());
-//                        Log.d("BASKA", "Longitude = " + location.getLongitude());
+                        Pair<Double, Double> position = new Pair<>(location.getLatitude(),
+                                location.getLongitude());
+                        coordinates.add(position);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -56,7 +61,6 @@ public class GeoCoordinatesImpl implements GeoCoordinates {
                         Log.e("ERROR", "Error trying to get last GPS location");
                     }
                 });
-        return coordinates;
     }
 
 

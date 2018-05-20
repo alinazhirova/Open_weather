@@ -6,8 +6,11 @@ import android.util.Log;
 
 import com.zhirova.alina.domain.City;
 import com.zhirova.alina.domain.WeatherDay;
-import com.zhirova.alina.model.CitiesModel;
-import com.zhirova.alina.model.CitiesModelImpl;
+import com.zhirova.alina.model.interaction.CitiesModel;
+import com.zhirova.alina.model.interaction.CitiesModelImpl;
+import com.zhirova.alina.remote.exception.InternetException;
+import com.zhirova.alina.remote.exception.NoForecastException;
+
 import java.util.List;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -47,17 +50,23 @@ public class StartPresenter implements StartContract.Presenter {
         if (view == null) return;
         Disposable curDisposable = citiesModel.getCities()
                 .subscribe(data -> {
-                    Log.d("BASKA", "data.size() = " + data.size());
-                    view.updateCitiesList(data);
-                    print(data);
+                    Log.d("BASKA", "subscribe");
+                    if (data.size() == 0) {
+                        view.showLoader();
+                    } else {
+                        view.updateCitiesList(data);
+                        //print(data);
+                    }
                 }, throwable -> {
-//                    if (throwable instanceof ServerException){
-//                        view.showServerError();
-//                    } else if (throwable instanceof InternetException) {
-//                        view.showInternetError();
-//                    } else {
-//                        view.showError();
-//                    }
+                    Log.d("BASKA", "throwable");
+                    view.hideLoader();
+                    if (throwable instanceof InternetException){
+                        view.showInternetError();
+                    } else if (throwable instanceof NoForecastException) {
+                        view.showInfoAboutLackOfWeather();
+                    } else {
+                        view.showError();
+                    }
                 });
         disposables.add(curDisposable);
     }

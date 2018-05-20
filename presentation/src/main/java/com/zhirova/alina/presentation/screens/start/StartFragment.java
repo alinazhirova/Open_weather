@@ -90,6 +90,7 @@ public class StartFragment extends Fragment implements StartContract.View,
 
     @Override
     public void updateCitiesList(List<City> actualCities) {
+        hideLoader();
         List<City> oldList = new ArrayList<>(oldCities);
         List<City> newList = new ArrayList<>(actualCities);
         oldCities = new ArrayList<>(actualCities);
@@ -129,6 +130,12 @@ public class StartFragment extends Fragment implements StartContract.View,
     @Override
     public void showLoader() {
         progressBar.setVisibility(View.VISIBLE);
+    }
+
+
+    @Override
+    public void hideLoader() {
+        progressBar.setVisibility(View.GONE);
     }
 
 

@@ -6,19 +6,9 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
-import com.zhirova.alina.domain.City;
-import com.zhirova.alina.domain.WeatherDay;
-import com.zhirova.alina.model.CitiesModel;
-import com.zhirova.alina.model.CitiesModelImpl;
 import com.zhirova.alina.presentation.R;
-
-import java.util.List;
-
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 
 public class MainActivity extends AppCompatActivity {

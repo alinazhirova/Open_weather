@@ -12,6 +12,7 @@ public class StartContract {
     public interface View {
         void updateCitiesList(List<City> actualCities);
         void showLoader();
+        void hideLoader();
         void showInfoAboutLackOfWeather();
         void showInternetError();
         void showError();

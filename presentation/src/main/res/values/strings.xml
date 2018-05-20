@@ -7,4 +7,5 @@
 
     <string name="no_weather">There is no weather forecast!</string>
     <string name="no_internet">There is no connection!</string>
+    <string name="unknown_error">There is unknown error!</string>
 </resources>

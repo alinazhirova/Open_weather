@@ -4,4 +4,7 @@
     <string name="location_access_required">Location access is required to definite your city
         for current weather displaying</string>
     <string name="ok">Ok</string>
+
+    <string name="no_weather">There is no weather forecast!</string>
+    <string name="no_internet">There is no connection!</string>
 </resources>

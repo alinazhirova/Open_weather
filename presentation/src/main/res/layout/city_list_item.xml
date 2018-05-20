@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        card_view:cardElevation="@dimen/cardview_default_elevation"
+        card_view:cardCornerRadius="10dp">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/category_item"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@drawable/back_selected">
+
+            <TextView
+                android:id="@+id/item_list_city_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/text_selected"
+                android:text="London"
+                android:textSize="20dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/item_list_temp_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="gravity"
+                android:textColor="@drawable/text_selected"
+                android:text="26C"
+                android:textSize="20dp"
+                android:gravity="start" />
+
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

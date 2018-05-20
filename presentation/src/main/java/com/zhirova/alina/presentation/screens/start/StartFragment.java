@@ -208,7 +208,7 @@ public class StartFragment extends Fragment implements StartContract.View,
 
 
     private void initUI(View root) {
-        recyclerView = root.findViewById(R.id.recycler_view_items);
+        recyclerView = root.findViewById(R.id.recycler_view_cities);
         progressBar = root.findViewById(R.id.progress_bar);
         infoText = root.findViewById(R.id.info_text_view);
         swipeRefreshLayout = root.findViewById(R.id.refresh);

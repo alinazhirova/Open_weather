@@ -67,7 +67,7 @@ public class StartPresenter implements StartContract.Presenter {
                         view.showLoader();
                     } else {
                         view.updateCitiesList(data);
-                        //print(data);
+                        print(data);
                     }
                 }, throwable -> {
                     Log.d("BASKA", "throwable");

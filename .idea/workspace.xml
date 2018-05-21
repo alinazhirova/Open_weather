@@ -24,10 +24,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java" afterPath="$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java" />
+      <change beforePath="$PROJECT_DIR$/presentation/build.gradle" afterPath="$PROJECT_DIR$/presentation/build.gradle" />
       <change beforePath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/MainActivity.java" afterPath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartContract.java" afterPath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartContract.java" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java" afterPath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java" />
       <change beforePath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java" afterPath="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java" />
+      <change beforePath="$PROJECT_DIR$/presentation/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/presentation/src/main/res/layout/activity_main.xml" />
       <change beforePath="$PROJECT_DIR$/presentation/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/presentation/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,26 +62,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+            <state relative-caret-position="429">
+              <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1276#1311#0" expanded="true" />
-                <element signature="e#1849#1882#0" expanded="true" />
-                <element signature="e#1942#1953#0" expanded="true" />
+                <element signature="e#1707#1742#0" expanded="true" />
+                <element signature="e#3139#3188#0" expanded="true" />
+                <element signature="e#3693#3726#0" expanded="true" />
+                <element signature="e#3786#3797#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StartPresenter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+            <state relative-caret-position="2550">
+              <caret line="193" column="21" lean-forward="false" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -92,8 +104,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -6259,12 +6271,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/presentation/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/presentation/src/main/res/layout/fragment_list.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/res/layout-land/activity_main.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/Test.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/application/NewsItemApplication.java" />
-        <option value="$PROJECT_DIR$/presentation/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/adapter/CitiesAdapter.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/diff_util/CItyDiffUtilCallback.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/adapter/CityAdapter.java" />
@@ -6284,13 +6293,10 @@
         <option value="$PROJECT_DIR$/remote/src/main/java/com/zhirova/alina/remote/remote_repository/RemoteApiImpl.java" />
         <option value="$PROJECT_DIR$/remote/src/main/java/com/zhirova/alina/remote/remote_repository/RemoteApi.java" />
         <option value="$PROJECT_DIR$/local/src/main/java/com/zhirova/alina/local/local_repository/LocalApiImpl.java" />
-        <option value="$PROJECT_DIR$/local/src/main/java/com/zhirova/alina/local/local_repository/LocalApi.java" />
         <option value="$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModel.java" />
-        <option value="$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/res/layout/fragment_start.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/adapter/StartContract.java" />
-        <option value="$PROJECT_DIR$/presentation/build.gradle" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/detail/DetailContract.java" />
         <option value="$PROJECT_DIR$/domain/src/main/java/com/zhirova/alina/domain/WeatherHour.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/detail/adapter/DayAdapter.java" />
@@ -6307,13 +6313,19 @@
         <option value="$PROJECT_DIR$/data/build.gradle" />
         <option value="$PROJECT_DIR$/presentation/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartContract.java" />
+        <option value="$PROJECT_DIR$/presentation/build.gradle" />
+        <option value="$PROJECT_DIR$/local/src/main/java/com/zhirova/alina/local/local_repository/LocalApi.java" />
+        <option value="$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java" />
+        <option value="$PROJECT_DIR$/presentation/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/presentation/src/main/res/layout/activity_main_understudy.xml" />
+        <option value="$PROJECT_DIR$/presentation/src/main/res/layout-land/activity_main_understudy.xml" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/MainActivity.java" />
         <option value="$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -6394,25 +6406,7 @@
             <path>
               <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
               <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -6420,31 +6414,56 @@
             <path>
               <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
               <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
               <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="geolocation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
               <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="local" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="model" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="model" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="model" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="model" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="local" type="462c0819:PsiDirectoryNode" />
-              <item name="local_repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Open_weather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="model" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="interaction" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Open_weather" type="b2602c69:ProjectViewProjectNode" />
@@ -6514,8 +6533,8 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
-    <property name="device.picker.selection" value="192.168.115.101:5555" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Android3_tasks/A2_L1_Menus" />
+    <property name="device.picker.selection" value="dd8c96680304" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Android_work/Task_2-master" />
     <property name="android.profiler.active" value="true" />
     <property name="android.project.structure.last.selected" value="presentation" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -6535,11 +6554,11 @@
       <recent name="com.zhirova.alina.presentation.screens" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Android_lessons\Open_weather\presentation\src\main\res\layout-land" />
       <recent name="D:\Android_lessons\Open_weather\presentation\src\main\res\menu" />
       <recent name="D:\Android_lessons\Open_weather\remote\src\main\java\com\zhirova\alina\remote" />
       <recent name="D:\Android_lessons\Open_weather\presentation\src\main\java\com\zhirova\alina\presentation\screens" />
       <recent name="D:\Android_lessons\Open_weather\presentation\src\main\java\com\zhirova\alina\presentation" />
-      <recent name="D:\Android_lessons\Open_weather\presentation\src\main\res\layout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -6734,7 +6753,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1046" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -6748,12 +6767,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4481132" sideWeight="0.49783784" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5613208" sideWeight="0.49783784" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25405404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5153302" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26486486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2712264" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -6811,30 +6830,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/presentation/src/main/res/layout-land/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.1/94732bda44fba11302c58e459b7c1f47e7521bf9/support-fragment-27.1.1-sources.jar!/android/support/v4/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="508" column="24" lean-forward="false" selection-start-line="508" selection-start-column="24" selection-end-line="508" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/presentation/src/main/res/layout/fragment_start.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -6908,13 +6903,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/zhirova/alina/data/geolocation/GeoCoordinatesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -6944,13 +6933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
           <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -7023,6 +7005,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="65" column="21" lean-forward="false" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -7044,6 +7027,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-225">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -7062,14 +7046,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="65" column="37" lean-forward="true" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -7112,13 +7091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/detail/DetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="86" column="57" lean-forward="false" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/detail/adapter/DayAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-271">
@@ -7137,22 +7109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/presentation/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="35" column="4" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="36" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -7175,14 +7131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="55" column="38" lean-forward="true" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -7199,32 +7147,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/src/main/java/com/zhirova/alina/local/local_repository/LocalApi.java">
+    <entry file="file://$PROJECT_DIR$/data/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="611">
+          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java">
+    <entry file="file://$PROJECT_DIR$/local/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="49" column="73" lean-forward="false" selection-start-line="49" selection-start-column="73" selection-end-line="49" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/src/main/java/com/zhirova/alina/data/geolocation/GeoCoordinatesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/detail/DetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="95" column="8" lean-forward="true" selection-start-line="95" selection-start-column="8" selection-end-line="98" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/src/main/java/com/zhirova/alina/local/local_repository/LocalApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/src/main/java/com/zhirova/alina/model/interaction/CitiesModelImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/res/layout/activity_main_understudy.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="10" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/res/layout-land/activity_main_understudy.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="56" column="20" lean-forward="true" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+        <state relative-caret-position="429">
+          <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1276#1311#0" expanded="true" />
-            <element signature="e#1849#1882#0" expanded="true" />
-            <element signature="e#1942#1953#0" expanded="true" />
+            <element signature="e#1707#1742#0" expanded="true" />
+            <element signature="e#3139#3188#0" expanded="true" />
+            <element signature="e#3693#3726#0" expanded="true" />
+            <element signature="e#3786#3797#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartPresenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/presentation/src/main/java/com/zhirova/alina/presentation/screens/start/StartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="193" column="21" lean-forward="false" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

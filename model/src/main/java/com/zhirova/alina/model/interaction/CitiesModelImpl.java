@@ -2,6 +2,7 @@ package com.zhirova.alina.model.interaction;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.util.Pair;
 
@@ -23,6 +24,10 @@ import io.reactivex.schedulers.Schedulers;
 public class CitiesModelImpl implements CitiesModel {
 
     private static final String TAG = CitiesModelImpl.class.getSimpleName();
+    private final String PREFS_NAME = "COORDINATES";
+    private final String BUNDLE_LOCATION_LAT = "CUR_POSITION_LATITUDE";
+    private final String BUNDLE_LOCATION_LONG = "CUR_POSITION_LONG";
+
     private Context context;
     private LocalApi localApi;
     private RemoteApi remoteApi;
@@ -39,15 +44,23 @@ public class CitiesModelImpl implements CitiesModel {
     public Observable<List<City>> getCities() {
         return Observable.<List<City>>create(emitter -> {
             try {
-                Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
-                List<Pair<Double, Double>> locations = new ArrayList<>();
-                locations.add(coord);
+//                Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
+//                List<Pair<Double, Double>> locations = new ArrayList<>();
+//                locations.add(coord);
 
-//                List<Pair<Double, Double>> locations = localApi.getLocations();
-//                if (locations.size() == 0) {
-//                    GeoCoordinates geoCoordinates = new GeoCoordinatesImpl(context);
-//                    locations = GeoCoordinatesImpl.getCoordinates();
-//                }
+                List<Pair<Double, Double>> locations = localApi.getLocations();
+                if (locations.size() == 0) {
+                    SharedPreferences sPref = context.getSharedPreferences(PREFS_NAME,
+                            Context.MODE_PRIVATE);
+                    Double latitude = Double.valueOf(sPref.getString(BUNDLE_LOCATION_LAT, ""));
+                    Double longitude = Double.valueOf(sPref.getString(BUNDLE_LOCATION_LONG, ""));
+                    Pair<Double, Double> coord = new Pair<>(latitude, longitude);
+                    locations.add(coord);
+
+                    Log.d("BASKA", "EMPTY DB");
+                    Log.d("BASKA", "latitude = " + latitude);
+                    Log.d("BASKA", "longitude = " + longitude);
+                }
 
                 List<City> cities = localApi.getCities();
                 emitter.onNext(new ArrayList<>(cities));

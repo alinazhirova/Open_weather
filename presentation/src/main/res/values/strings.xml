@@ -15,4 +15,5 @@
     <string name="desc_question">Are you sure you want to delete the city</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="location_error">Error trying to get last GPS location!</string>
 </resources>

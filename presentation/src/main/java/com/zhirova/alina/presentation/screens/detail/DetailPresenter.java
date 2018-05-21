@@ -7,8 +7,6 @@ import com.zhirova.alina.domain.City;
 import com.zhirova.alina.local.local_repository.LocalApi;
 import com.zhirova.alina.local.local_repository.LocalApiImpl;
 
-import java.util.zip.CheckedInputStream;
-
 
 public class DetailPresenter implements  DetailContract.Presenter {
 

@@ -113,7 +113,7 @@ public class WeatherDay {
 
 
     public String getClouds() {
-        return (clouds.all + " %");
+        return ("clouds: " + clouds.all + " %");
     }
 
 

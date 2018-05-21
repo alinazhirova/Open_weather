@@ -20,7 +20,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     private final Context context;
     private final LayoutInflater inflater;
-    List<Pair<String, List<WeatherDay>>> info = new ArrayList<>();
+    private List<Pair<String, List<WeatherDay>>> info = new ArrayList<>();
 
 
     public ForecastAdapter(Context context) {

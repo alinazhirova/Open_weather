@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.zhirova.alina.domain.City;
 import com.zhirova.alina.domain.WeatherDay;
-import com.zhirova.alina.domain.WeatherForecast;
 import com.zhirova.alina.presentation.R;
 import com.zhirova.alina.presentation.screens.detail.adapter.ForecastAdapter;
 
@@ -66,15 +66,27 @@ public class DetailFragment extends Fragment implements DetailContract.View {
 
         List<Pair<String, List<WeatherDay>>> forecast = new ArrayList<>();
         List<WeatherDay> days = curCity.getWeatherForecast().getDays();
+
         for (int i = 0; i < days.size(); i++) {
-            List<WeatherDay> curDayForecast = new ArrayList<>();
-            for (int j = 0; j < days.size(); j++) {
-                if (days.get(i).getDate().equals(days.get(j).getDate())) {
-                    curDayForecast.add(days.get(i));
+            boolean existed = false;
+            for (int k = 0; k < forecast.size(); k++) {
+                if (forecast.get(k).first.equals(days.get(i).getDate())) {
+                    existed = true;
+                    break;
                 }
             }
-            Pair<String, List<WeatherDay>> curDay = new Pair<>(days.get(i).getDate(), curDayForecast);
-            forecast.add(curDay);
+
+            if (!existed ) {
+                List<WeatherDay> curDayForecast = new ArrayList<>();
+                for (int j = 0; j < days.size(); j++) {
+                    if (days.get(i).getDate().equals(days.get(j).getDate())) {
+                        curDayForecast.add(days.get(j));
+                    }
+                }
+                Pair<String, List<WeatherDay>> curDay = new Pair<>(days.get(i).getDate(),
+                        new ArrayList<>(curDayForecast));
+                forecast.add(curDay);
+            }
         }
         forecastAdapter.setData(forecast);
     }

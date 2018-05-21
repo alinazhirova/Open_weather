@@ -23,6 +23,7 @@ public class StartContract {
         void subscribe(View view, Context context);
         void unsubsribe(View view);
         void refreshCities();
+        List<City> removeCity(String cityName);
     }
 
 

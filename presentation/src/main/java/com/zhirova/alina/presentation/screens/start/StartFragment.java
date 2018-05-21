@@ -9,10 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -65,6 +69,7 @@ public class StartFragment extends Fragment implements StartContract.View,
         startPresenter = new StartPresenter();
         fragmentManager = getActivity().getSupportFragmentManager();
         initUI(view);
+        setHasOptionsMenu(true);
     }
 
 
@@ -206,6 +211,60 @@ public class StartFragment extends Fragment implements StartContract.View,
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.main, menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_add:
+                return true;
+            case R.id.menu_delete:
+                if (selectedCity != null) {
+                    showDeletingDialog(selectedCity);
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    public void showDeletingDialog(String cityName) {
+        String title = getResources().getString(R.string.title_question);
+        String message = getResources().getString(R.string.desc_question) + " " + (cityName) + "?";
+        String buttonYes = getResources().getString(R.string.yes);
+        String buttonNo = getResources().getString(R.string.no);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setCancelable(false);
+
+        builder.setPositiveButton(buttonYes, (dialog, which) -> {
+            List<City> oldList = new ArrayList<>(oldCities);
+            List<City> actualCities = startPresenter.removeCity(cityName);
+            List<City> newList = new ArrayList<>(actualCities);
+            oldCities = new ArrayList<>(actualCities);
+
+            CityDiffUtilCallback cityDiffUtilCallback = new CityDiffUtilCallback(oldList, newList);
+            DiffUtil.DiffResult cityDiffResult = DiffUtil.calculateDiff(cityDiffUtilCallback, true);
+
+            adapter.setData(actualCities);
+            cityDiffResult.dispatchUpdatesTo(adapter);
+
+        });
+
+        builder.setNegativeButton(buttonNo, (dialog, arg1) -> dialog.dismiss());
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 

@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.zhirova.alina.domain.City;
 import com.zhirova.alina.domain.WeatherDay;
+import com.zhirova.alina.local.local_repository.LocalApi;
+import com.zhirova.alina.local.local_repository.LocalApiImpl;
 import com.zhirova.alina.model.interaction.CitiesModel;
 import com.zhirova.alina.model.interaction.CitiesModelImpl;
 import com.zhirova.alina.remote.exception.InternetException;
@@ -22,11 +24,13 @@ public class StartPresenter implements StartContract.Presenter {
     private StartContract.View view;
     private CitiesModel citiesModel;
     private CompositeDisposable disposables;
+    private Context context;
 
 
     @Override
     public void subscribe(StartContract.View view, Context context) {
         this.view = view;
+        this.context = context;
         citiesModel = new CitiesModelImpl(context);
         disposables = new CompositeDisposable();
         updateScreen();
@@ -43,6 +47,14 @@ public class StartPresenter implements StartContract.Presenter {
     @Override
     public void refreshCities() {
         updateScreen();
+    }
+
+
+    @Override
+    public List<City> removeCity(String cityName) {
+        LocalApi localApi = new LocalApiImpl(context);
+        localApi.deleteSelectedCity(cityName);
+        return localApi.getCities();
     }
 
 

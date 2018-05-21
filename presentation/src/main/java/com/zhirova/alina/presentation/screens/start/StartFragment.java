@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ import com.zhirova.alina.domain.City;
 import com.zhirova.alina.presentation.R;
 import com.zhirova.alina.presentation.application.CityApplication;
 import com.zhirova.alina.presentation.diff_util.CityDiffUtilCallback;
+import com.zhirova.alina.presentation.screens.detail.DetailFragment;
 import com.zhirova.alina.presentation.screens.start.adapter.CityAdapter;
 
 import java.util.ArrayList;
@@ -184,26 +186,26 @@ public class StartFragment extends Fragment implements StartContract.View,
             }, 200);
         }
 
-//        if (isDualPane) {
-//            fragmentManager.popBackStack();
-//            DetailFragment details = (DetailFragment) fragmentManager.findFragmentById(R.id.details);
-//            if (details == null) {
-//                details = DetailFragment.create(itemId);
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.details, details);
-//                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-//                fragmentTransaction.commit();
-//            }
-//            else if (!details.getShownId().equals(itemId)){
-//                details.update(itemId);
-//            }
-//        } else {
-//            DetailFragment curFragment = DetailFragment.create(itemId);
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.add(R.id.container, curFragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//        }
+        if (isDualPane) {
+            fragmentManager.popBackStack();
+            DetailFragment details = (DetailFragment) fragmentManager.findFragmentById(R.id.details);
+            if (details == null) {
+                details = DetailFragment.create(cityName);
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.details, details);
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                fragmentTransaction.commit();
+            }
+            else if (!details.getShownCity().equals(cityName)){
+                details.updateData(cityName);
+            }
+        } else {
+            DetailFragment curFragment = DetailFragment.create(cityName);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.container, curFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
     }
 
 

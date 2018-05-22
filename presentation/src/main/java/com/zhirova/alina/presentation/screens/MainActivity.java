@@ -5,18 +5,25 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.google.android.gms.common.util.NumberUtils;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.zhirova.alina.local.database.CityContract;
 import com.zhirova.alina.local.database.DatabaseApi;
 import com.zhirova.alina.local.database.DatabaseHelper;
 import com.zhirova.alina.presentation.R;
+import com.zhirova.alina.presentation.screens.start.StartPresenter;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         showPermissionPreview();
     }
@@ -45,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 setContentView(R.layout.activity_main_understudy);
                 mainLayout = findViewById(R.id.container_understudy);
-                Snackbar.make(mainLayout, R.string.location_permission_denied, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(mainLayout, R.string.location_permission_denied,
+                        Snackbar.LENGTH_SHORT).show();
             }
         }
     }
@@ -59,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
             fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
                         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME,
                                 MODE_PRIVATE).edit();
-                        editor.putString(BUNDLE_LOCATION_LAT, String.valueOf(location.getLatitude()));
-                        editor.putString(BUNDLE_LOCATION_LONG, String.valueOf(location.getLongitude()));
-                        editor.apply();
-                        setContentView(R.layout.activity_main);
-                        mainLayout = findViewById(R.id.container);
-                    })
+                            editor.putString(BUNDLE_LOCATION_LAT, String.valueOf(location.getLatitude()));
+                            editor.putString(BUNDLE_LOCATION_LONG, String.valueOf(location.getLongitude()));
+                            editor.apply();
+                            setContentView(R.layout.activity_main);
+                            mainLayout = findViewById(R.id.container);
+                        })
                     .addOnFailureListener(e -> {
                         Log.e("ERROR", "Error trying to get last GPS location!");
                         setContentView(R.layout.activity_main_understudy);
@@ -94,6 +103,26 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                     PERMISSION_REQUEST_ACCESS_COARSE_LOCATION);
+        }
+    }
+
+
+    public void onSettingsClick(View view) {
+        EditText editTextSettings = findViewById(R.id.edit_text_settings);
+        String delayString = String.valueOf(editTextSettings.getText());
+
+        if (delayString.isEmpty()) {
+            Snackbar.make(mainLayout, R.string.empty, Snackbar.LENGTH_SHORT).show();
+        } else {
+            if (NumberUtils.isNumeric(delayString)) {
+                StartPresenter.delay = Long.parseLong(delayString);
+                editTextSettings.clearFocus();
+
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                Snackbar.make(mainLayout, R.string.integers, Snackbar.LENGTH_SHORT).show();
+            }
         }
     }
 

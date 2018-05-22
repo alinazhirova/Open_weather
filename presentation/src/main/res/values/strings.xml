@@ -18,4 +18,9 @@
     <string name="location_error">Error trying to get last GPS location!</string>
     <string name="no_chosen_city">Please, choose city for deleting!</string>
     <string name="search">Search</string>
+    <string name="input_synchronization_period">Input synchronization period in integer minutes</string>
+    <string name="nav_feedback">Feedback</string>
+    <string name="nav_about">About</string>
+    <string name="integers">Please, input only integer numbers!</string>
+    <string name="empty">The field is empty! Input information!</string>
 </resources>

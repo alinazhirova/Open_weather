@@ -6,6 +6,9 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.OnLifecycleEvent;
 import android.arch.lifecycle.ProcessLifecycleOwner;
+import android.util.Log;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class CityApplication extends Application implements LifecycleObserver {
@@ -18,6 +21,11 @@ public class CityApplication extends Application implements LifecycleObserver {
     public void onCreate() {
         super.onCreate();
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            Log.e(TAG, "ERROR!");
+        }
     }
 
 

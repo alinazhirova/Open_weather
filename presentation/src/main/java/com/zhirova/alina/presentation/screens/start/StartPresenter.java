@@ -14,6 +14,8 @@ import com.zhirova.alina.model.interaction.CitiesModelImpl;
 import com.zhirova.alina.remote.exception.InternetException;
 import com.zhirova.alina.remote.exception.NoForecastException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
@@ -21,9 +23,11 @@ import io.reactivex.disposables.Disposable;
 public class StartPresenter implements StartContract.Presenter {
 
     private static final String TAG = StartPresenter.class.getSimpleName();
+    public static CompositeDisposable disposables;
+    public static Long delay = 1L;
+
     private StartContract.View view;
     private CitiesModel citiesModel;
-    public static CompositeDisposable disposables;
     private Context context;
 
 
@@ -61,8 +65,9 @@ public class StartPresenter implements StartContract.Presenter {
     private void updateScreen(Pair<Double, Double> userLocation) {
         if (view == null) return;
         Disposable curDisposable = citiesModel.getCities(userLocation)
+                .repeatWhen(objectObservable -> objectObservable.delay(delay, TimeUnit.MINUTES))
                 .subscribe(data -> {
-                    Log.d("BASKA", "subscribe");
+                    Log.d("BASKA", "delay = " + delay);
                     if (data.size() == 0) {
                         view.showLoader();
                     } else {

@@ -56,4 +56,11 @@ public class LocalApiImpl implements LocalApi {
     }
 
 
+    @Override
+    public void addCity(String name, Double latitude, Double longitude,
+                        String temperature, String weatherForecast) {
+        DatabaseApi.addItem(name, latitude, longitude, temperature, weatherForecast, database);
+    }
+
+
 }

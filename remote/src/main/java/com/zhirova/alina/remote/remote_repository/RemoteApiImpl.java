@@ -42,8 +42,8 @@ public class RemoteApiImpl implements RemoteApi {
         List<City> cities = new ArrayList<>();
         if (isOnline()) {
             for (int i = 0; i < locations.size(); i++) {
-                double curLatitude = locations.get(i).first;
-                double curLongitude = locations.get(i).second;
+                Double curLatitude = locations.get(i).first;
+                Double curLongitude = locations.get(i).second;
 
                 Call<WeatherDay> callToday = weatherService.getToday(curLatitude, curLongitude,
                         WeatherApi.UNITS, WeatherApi.KEY);

@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,6 +27,7 @@ import com.zhirova.alina.domain.City;
 import com.zhirova.alina.presentation.R;
 import com.zhirova.alina.presentation.application.CityApplication;
 import com.zhirova.alina.presentation.diff_util.CityDiffUtilCallback;
+import com.zhirova.alina.presentation.screens.add.AddFragment;
 import com.zhirova.alina.presentation.screens.detail.DetailFragment;
 import com.zhirova.alina.presentation.screens.start.adapter.CityAdapter;
 
@@ -85,6 +87,7 @@ public class StartFragment extends Fragment implements StartContract.View,
         super.onStart();
         startPresenter.subscribe(this, getContext());
         CityApplication.firstLoading = false;
+        Log.d("BASKA", "onStart");
     }
 
 
@@ -225,9 +228,19 @@ public class StartFragment extends Fragment implements StartContract.View,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add:
+                AddFragment curFragment = new AddFragment();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.container, curFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 return true;
             case R.id.menu_delete:
-                if (selectedCity != null) {
+                if (selectedCity == null) {
+                    Snackbar snackbar = Snackbar.make(getView(),
+                            getResources().getString(R.string.no_chosen_city),
+                            Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                } else {
                     showDeletingDialog(selectedCity);
                 }
                 return true;

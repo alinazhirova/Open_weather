@@ -25,8 +25,8 @@ public class DatabaseApi {
                 CityContract.CityEntry.COLUMN_NAME + " TEXT PRIMARY KEY NOT NULL," +
                 CityContract.CityEntry.COLUMN_LATITUDE + " REAL NOT NULL, " +
                 CityContract.CityEntry.COLUMN_LONGITUDE + " REAL NOT NULL, " +
-                CityContract.CityEntry.COLUMN_TEMPERATURE + " TEXT NOT NULL, " +
-                CityContract.CityEntry.COLUMN_WEATHER_FORECAST + " TEXT NOT NULL);");
+                CityContract.CityEntry.COLUMN_TEMPERATURE + " TEXT, " +
+                CityContract.CityEntry.COLUMN_WEATHER_FORECAST + " TEXT);");
     }
 
 
@@ -35,8 +35,9 @@ public class DatabaseApi {
     }
 
 
-    public static void addItem(String name, double latitude, double longitude, String temperature,
+    public static void addItem(String name, Double latitude, Double longitude, String temperature,
                                String weatherForecast, SQLiteDatabase database) {
+        Log.d("BASKA", "DatabaseApi___addItem");
         ContentValues values = new ContentValues();
         values.put(CityContract.CityEntry.COLUMN_NAME, name);
         values.put(CityContract.CityEntry.COLUMN_LATITUDE, latitude);

@@ -44,26 +44,25 @@ public class CitiesModelImpl implements CitiesModel {
     public Observable<List<City>> getCities() {
         return Observable.<List<City>>create(emitter -> {
             try {
-//                Pair<Double, Double> coord = new Pair<>(53.22522522522522, 50.20128527695212);
-//                List<Pair<Double, Double>> locations = new ArrayList<>();
-//                locations.add(coord);
-
                 List<Pair<Double, Double>> locations = localApi.getLocations();
                 if (locations.size() == 0) {
+                    Log.d("BASKA", "EMPTY_DB");
                     SharedPreferences sPref = context.getSharedPreferences(PREFS_NAME,
                             Context.MODE_PRIVATE);
                     Double latitude = Double.valueOf(sPref.getString(BUNDLE_LOCATION_LAT, ""));
                     Double longitude = Double.valueOf(sPref.getString(BUNDLE_LOCATION_LONG, ""));
                     Pair<Double, Double> coord = new Pair<>(latitude, longitude);
                     locations.add(coord);
-
-                    Log.d("BASKA", "EMPTY DB");
-                    Log.d("BASKA", "latitude = " + latitude);
-                    Log.d("BASKA", "longitude = " + longitude);
                 }
 
                 List<City> cities = localApi.getCities();
                 emitter.onNext(new ArrayList<>(cities));
+
+                for (int i = 0; i < locations.size(); i++) {
+                    Log.d("BASKA", "=====================");
+                    Log.d("BASKA", "MODEL_______first = " + locations.get(i).first);
+                    Log.d("BASKA", "MODEL_______second = " + locations.get(i).second);
+                }
 
                 try {
                     TimeUnit.SECONDS.sleep(2);

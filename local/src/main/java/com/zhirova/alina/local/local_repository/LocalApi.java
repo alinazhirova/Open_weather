@@ -12,4 +12,6 @@ public interface LocalApi {
     City getSelectedCity(String name);
     void deleteSelectedCity(String name);
     void refreshCities(List<City> cities);
+    void addCity(String name, Double latitude, Double longitude, String temperature,
+                 String weatherForecast);
 }

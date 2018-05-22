@@ -16,4 +16,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="location_error">Error trying to get last GPS location!</string>
+    <string name="no_chosen_city">Please, choose city for deleting!</string>
+    <string name="search">Search</string>
 </resources>

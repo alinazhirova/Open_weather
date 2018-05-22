@@ -3,6 +3,7 @@ package com.zhirova.alina.presentation.screens;
 import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -12,6 +13,9 @@ import android.view.View;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.zhirova.alina.local.database.CityContract;
+import com.zhirova.alina.local.database.DatabaseApi;
+import com.zhirova.alina.local.database.DatabaseHelper;
 import com.zhirova.alina.presentation.R;
 
 

@@ -3,7 +3,6 @@ package com.zhirova.alina.presentation.screens.start;
 
 import android.content.Context;
 import android.util.Log;
-
 import com.zhirova.alina.domain.City;
 import com.zhirova.alina.domain.WeatherDay;
 import com.zhirova.alina.local.local_repository.LocalApi;
@@ -12,7 +11,6 @@ import com.zhirova.alina.model.interaction.CitiesModel;
 import com.zhirova.alina.model.interaction.CitiesModelImpl;
 import com.zhirova.alina.remote.exception.InternetException;
 import com.zhirova.alina.remote.exception.NoForecastException;
-
 import java.util.List;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -23,7 +21,7 @@ public class StartPresenter implements StartContract.Presenter {
     private static final String TAG = StartPresenter.class.getSimpleName();
     private StartContract.View view;
     private CitiesModel citiesModel;
-    private CompositeDisposable disposables;
+    public static CompositeDisposable disposables;
     private Context context;
 
 
@@ -67,7 +65,7 @@ public class StartPresenter implements StartContract.Presenter {
                         view.showLoader();
                     } else {
                         view.updateCitiesList(data);
-                        print(data);
+                        //print(data);
                     }
                 }, throwable -> {
                     Log.d("BASKA", "throwable");

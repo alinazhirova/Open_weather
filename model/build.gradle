@@ -33,7 +33,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(':domain')
-    implementation project(':data')
     implementation project(':local')
     implementation project(':remote')
 

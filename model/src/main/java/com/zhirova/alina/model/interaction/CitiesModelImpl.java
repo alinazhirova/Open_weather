@@ -41,12 +41,11 @@ public class CitiesModelImpl implements CitiesModel {
 
 
     @Override
-    public Observable<List<City>> getCities() {
+    public Observable<List<City>> getCities(Pair<Double, Double> userLocation) {
         return Observable.<List<City>>create(emitter -> {
             try {
                 List<Pair<Double, Double>> locations = localApi.getLocations();
                 if (locations.size() == 0) {
-                    Log.d("BASKA", "EMPTY_DB");
                     SharedPreferences sPref = context.getSharedPreferences(PREFS_NAME,
                             Context.MODE_PRIVATE);
                     Double latitude = Double.valueOf(sPref.getString(BUNDLE_LOCATION_LAT, ""));
@@ -54,15 +53,11 @@ public class CitiesModelImpl implements CitiesModel {
                     Pair<Double, Double> coord = new Pair<>(latitude, longitude);
                     locations.add(coord);
                 }
-
+                if (userLocation != null) {
+                    locations.add(userLocation);
+                }
                 List<City> cities = localApi.getCities();
                 emitter.onNext(new ArrayList<>(cities));
-
-                for (int i = 0; i < locations.size(); i++) {
-                    Log.d("BASKA", "=====================");
-                    Log.d("BASKA", "MODEL_______first = " + locations.get(i).first);
-                    Log.d("BASKA", "MODEL_______second = " + locations.get(i).second);
-                }
 
                 try {
                     TimeUnit.SECONDS.sleep(2);

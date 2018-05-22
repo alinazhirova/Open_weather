@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,32 +13,25 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import com.google.gson.Gson;
-import com.zhirova.alina.domain.City;
-import com.zhirova.alina.domain.WeatherDay;
-import com.zhirova.alina.local.local_repository.LocalApi;
-import com.zhirova.alina.local.local_repository.LocalApiImpl;
 import com.zhirova.alina.presentation.R;
-import com.zhirova.alina.presentation.screens.start.StartPresenter;
-import com.zhirova.alina.remote.exception.InternetException;
-import com.zhirova.alina.remote.exception.NoForecastException;
-import com.zhirova.alina.remote.remote_repository.RemoteApi;
-import com.zhirova.alina.remote.remote_repository.RemoteApiImpl;
-
+import com.zhirova.alina.presentation.screens.start.StartFragment;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 public class AddFragment extends Fragment {
 
-    private String[] cities = new String[]{"London", "Paris", "Moscow", "Berlin", "Minsk", "St.Petesburg",
-            "Kiev", "Rome", "Stockholm", "Prague", "Tokio", "Copenhagen", "Madrid", "Lisbon", "Oslo"};
+    private String[] cities = new String[]{"London", "Socorro", "Moscow", "Berlin", "Minsk", "Novosibirsk",
+            "Odessa", "New_York", "Stockholm", "Karlovy Vary", "Tokio", "Kaliningrad", "Beijing",
+            "Reykjavik", "Oslo"};
 
-    private Double[][] coordinates = {{51.50, 0.12}, {48.86, 2.37}, {55.75, 37.50}, {52.44, 13.33},
-            {54.00, 27.60}, {59.80, 30.30}, {50.40, 30.50}, {41.88, 12.48}, {59.33, 18.05},
-            {50.08, 14.40}, {32.70, 139.70}, {55.66, 12.57}, {40.42, 03.70}, {38.71, -09.15}, {59.90, 10.75} };
+    private Double[][] coordinates = {{51.5073509, -0.1277583}, {38.7222524, -9.139336599999979},
+            {55.755826, 37.617299900000035}, {52.52000659999999, 13.404953999999975},
+            {53.9045398, 27.561524400000053}, {55.00835259999999, 82.93573270000002},
+            {46.482526, 30.723309500000028}, {40.7127753, -74.0059728},
+            {59.3293235, 18.0685808}, {50.2318521, 12.871961599999963},
+            {35.6894875, 139.69170639999993}, {54.7104264, 20.452214400000003},
+            {54.7104264, 20.452214400000003}, {64.1265206, -21.8174392}, {59.9138688, 10.7522454}};
 
     private ArrayList<String> listCities;
     private ArrayAdapter<String> adapter;
@@ -100,20 +92,14 @@ public class AddFragment extends Fragment {
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((parent, v, position, id) -> {
-            String cityName = cities[position];
-            Double latitude = coordinates[position][0];
-            Double longitude = coordinates[position][1];
-
-            List<Pair<Double, Double>> locations = new ArrayList<>();
-            Pair<Double, Double> coord = new Pair<>(latitude, longitude);
-            locations.add(coord);
-
-
-
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.popBackStack();
-            StartPresenter startPresenter = new StartPresenter();
-            startPresenter.refreshCities();
+
+            Double latitude = coordinates[position][0];
+            Double longitude = coordinates[position][1];
+            Pair<Double, Double> coord = new Pair<>(latitude, longitude);
+            StartFragment startFragment = (StartFragment) fragmentManager.findFragmentById(R.id.start);
+            startFragment.addCityUpdate(coord);
         });
     }
 

@@ -37,7 +37,6 @@ public class DatabaseApi {
 
     public static void addItem(String name, Double latitude, Double longitude, String temperature,
                                String weatherForecast, SQLiteDatabase database) {
-        Log.d("BASKA", "DatabaseApi___addItem");
         ContentValues values = new ContentValues();
         values.put(CityContract.CityEntry.COLUMN_NAME, name);
         values.put(CityContract.CityEntry.COLUMN_LATITUDE, latitude);

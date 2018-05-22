@@ -14,6 +14,7 @@ import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -87,7 +88,6 @@ public class StartFragment extends Fragment implements StartContract.View,
         super.onStart();
         startPresenter.subscribe(this, getContext());
         CityApplication.firstLoading = false;
-        Log.d("BASKA", "onStart");
     }
 
 
@@ -173,12 +173,18 @@ public class StartFragment extends Fragment implements StartContract.View,
 
 
     @Override
+    public void addCityUpdate(Pair<Double, Double> userLocation) {
+        startPresenter.refreshCities(userLocation);
+    }
+
+
+    @Override
     public void onRefresh() {
         swipeRefreshLayout.setRefreshing(true);
         swipeRefreshLayout.setColorSchemeResources(R.color.refresh1, R.color.refresh2, R.color.refresh3);
         swipeRefreshLayout.postDelayed(() -> {
             swipeRefreshLayout.setRefreshing(false);
-            startPresenter.refreshCities();
+            startPresenter.refreshCities(null);
         }, 1000);
     }
 
@@ -242,6 +248,7 @@ public class StartFragment extends Fragment implements StartContract.View,
                     snackbar.show();
                 } else {
                     showDeletingDialog(selectedCity);
+                    selectedCity = null;
                 }
                 return true;
             default:

@@ -3,6 +3,8 @@ package com.zhirova.alina.presentation.screens.start;
 
 import android.content.Context;
 import android.util.Log;
+import android.util.Pair;
+
 import com.zhirova.alina.domain.City;
 import com.zhirova.alina.domain.WeatherDay;
 import com.zhirova.alina.local.local_repository.LocalApi;
@@ -31,7 +33,7 @@ public class StartPresenter implements StartContract.Presenter {
         this.context = context;
         citiesModel = new CitiesModelImpl(context);
         disposables = new CompositeDisposable();
-        updateScreen();
+        updateScreen(null);
     }
 
 
@@ -43,8 +45,8 @@ public class StartPresenter implements StartContract.Presenter {
 
 
     @Override
-    public void refreshCities() {
-        updateScreen();
+    public void refreshCities(Pair<Double, Double> userLocation) {
+        updateScreen(userLocation);
     }
 
 
@@ -56,9 +58,9 @@ public class StartPresenter implements StartContract.Presenter {
     }
 
 
-    private void updateScreen() {
+    private void updateScreen(Pair<Double, Double> userLocation) {
         if (view == null) return;
-        Disposable curDisposable = citiesModel.getCities()
+        Disposable curDisposable = citiesModel.getCities(userLocation)
                 .subscribe(data -> {
                     Log.d("BASKA", "subscribe");
                     if (data.size() == 0) {
